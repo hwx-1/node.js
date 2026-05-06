@@ -22,9 +22,9 @@ log4js.configure({
             filename: 'logs/all-logs.log',
         },
         error: {
-            type: 'detefile',
+            type: 'dateFile',
             filename: 'logs/log',
-            plttern: 'yyyy-MM-dd.log',
+            pattern: 'yyyy-MM-dd.log',
             alwaysIncludePattern: true,
         },
     },

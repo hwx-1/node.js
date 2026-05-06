@@ -8,10 +8,11 @@ const logger = require('koa-logger')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
-var log4js = require('log4js')
-var logger4 = require('./utils/log4js')
-logger.level = 'debug'
-logger.debig('Some debug messages')
+require('./config/db')
+// var log4js = require('log4js')
+// var logger4 = require('./utils/log4js')
+// logger.level = 'debug'
+// logger.debig('Some debug messages')
 
 // error handler
 onerror(app)

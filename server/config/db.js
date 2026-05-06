@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
-
-const sequelize = new Sequelize('dev', 'root', '123456', {
+const log4js = require('../utile/log4js')
+const sequelize = new Sequelize('dev5', 'root', '123456', {
     host: 'localhost',
     dialect: 'mysql',
-    operatorsAliases: true,
+    // operatorsAliases: true,
     pool: {
         max: 5,
         min: 0,
@@ -12,11 +12,14 @@ const sequelize = new Sequelize('dev', 'root', '123456', {
     },
 })
 
-sequelize.authenticate().then(() => {
-    console.log('连接成功')
-}).catch((error) => {
-    console.error('连接失败')
-})
+sequelize
+    .authenticate()
+    .then(() => {
+        log4js.info('连接成功')
+    })
+    .catch((error) => {
+        log4js.error('连接失败')
+    })
 
 //根据模型自动创建表格
 sequelize.sync()
